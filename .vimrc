@@ -389,7 +389,12 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-:set number relativenumber
+:set number relativenumber 
 map <c-f> :call JsBeautify()<cr>
 set nohlsearch
 noremap Y y$
+let g:vue_disable_pre_processors=1
+:set expandtab
+:set tabstop=2
+:set shiftwidth=2
+set cmdheight=2
