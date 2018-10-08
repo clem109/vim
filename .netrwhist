@@ -1,8 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/Users/clement/iHealth/wealthy-whale'
 let g:netrw_dirhist_2='/Users/clement/iHealth/wealthy-whale/src'
 let g:netrw_dirhist_3='/Users/clement/iHealth/wealthy-whale/src/router'
 let g:netrw_dirhist_4='/Users/clement/iHealth/wealthy-whale/static'
 let g:netrw_dirhist_5='/Users/clement/iHealth/wealthy-whale'
 let g:netrw_dirhist_6='/Users/clement/iHealth/wealthy-whale/src'
+let g:netrw_dirhist_7='/Users/clementvenard/github.com/ngorisi/adventurous-ardvark/src'
