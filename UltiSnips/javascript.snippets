@@ -1,0 +1,391 @@
+# React & JSX
+snippet rrcc "React Redux Class Component" b
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import styles from './${2:$1}.css';
+
+class ${1:`!v expand('%:t:r')`} extends Component {
+	static propTypes = {
+		children: PropTypes.node,
+		className: PropTypes.string,
+		dispatch: PropTypes.func.isRequired,
+	};
+
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			<div className={styles.base}>
+				$3
+			</div>
+		);
+	}
+}
+
+function mapStateToProps(state) {
+	return {};
+}
+
+export default connect(mapStateToProps)($1);
+endsnippet
+
+snippet src "Stateless React Component" b
+import React from 'react';
+
+const $1 = ({$2}) => (
+  <div>
+		{$2}
+	</div>
+);
+
+export default $1;
+endsnippet
+
+snippet rcc "React Class Component" b
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import styles from './${2:$1}.css';
+
+class ${1:`!v expand('%:t:r')`} extends Component {
+	static propTypes = {
+		children: PropTypes.node,
+		className: PropTypes.string,
+	};
+
+	constructor(props) {
+		super(props);
+	}
+
+	render() {
+		return (
+			<div className={styles.base}>
+				$3
+			</div>
+		);
+	}
+}
+
+export default $1;
+endsnippet
+
+snippet rfc "React Functional Component" b
+import React from 'react';
+import PropTypes from 'prop-types';
+import styles from './${2:$1}.css';
+
+function ${1:`!v expand('%:t:r')`}(${3:{...props}}) {
+	return (
+		<div className={styles.base}>
+			$4
+		</div>
+	);
+}
+
+$1.defaultProps = {};
+
+$1.propTypes = {};
+
+export default $1;
+endsnippet
+
+snippet rsc "React Styled Component" b
+import styled from 'styled-components';
+
+const ${1:`!v expand('%:t:r')`} = styled.${2:div}\`
+	$3
+\`;
+
+export default $1;
+endsnippet
+
+snippet rsci "React Styled Component Interpolation" b
+import styled, { css } from 'styled-components';
+
+const ${1:`!v expand('%:t:r')`} = styled.${2:div}\`${props => css\`
+	${3:${props.$4 && \`
+		$5
+	\`}}
+\`}\`;
+
+export default $1;
+endsnippet
+
+snippet styc "Styled Component"
+const ${1:`!v expand('%:t:r')`} = styled.${2:div}\`
+	$3
+\`;
+endsnippet
+
+snippet pp "Get Props"
+${props => props.${1}};
+endsnippet
+
+snippet cn "className"
+className="$1"
+endsnippet
+
+snippet dp "Default Props" b
+${1:`!v expand('%:t:r')`.}defaultProps = {
+	$2
+};
+endsnippet
+
+snippet set "Set State"
+this.setState({
+	${1}: ${2}
+});
+endsnippet
+
+snippet props "Get Property" i
+this.props.${1}
+endsnippet
+
+snippet state "Get State" i
+this.state.${1}
+endsnippet
+
+snippet ref "Ref" i
+ref={${1:ref} => { this.${2:name} = $1; }}
+endsnippet
+
+
+# Component Lifecycle
+snippet cwm "Component Will Mount" b
+componentWillMount() {
+	$1
+}
+endsnippet
+
+snippet cdm "Component Did Mount" b
+componentDidMount() {
+	$1
+}
+endsnippet
+
+snippet cwrp "Component Will Receive Props" b
+componentWillReceiveProps(nextProps) {
+	$1
+}
+endsnippet
+
+snippet scup "Should Component Update" b
+shouldComponentUpdate(nextProps, nextState) {
+	$1
+}
+endsnippet
+
+snippet cwup "Component Will Update" b
+componentWillUpdate(nextProps, nextState) {
+	$1
+}
+endsnippet
+
+snippet cdup "Component Did Update" b
+componentDidUpdate(prevProps, prevState) {
+	$1
+}
+endsnippet
+
+snippet cwu "Component Will Unmount" b
+componentWillUnmount() {
+	$1
+}
+endsnippet
+
+snippet ren "Render"
+render() {
+	return ${1:(
+		${2:<div>${3}</div>}
+	);}
+}
+endsnippet
+
+
+# PropTypes
+snippet pt "PropTypes Definition" b
+${1:`!v expand('%:t:r')`.}propTypes = {
+	${2:className}: ${3:PropTypes.string},
+};
+endsnippet
+
+snippet  pt.a "PropTypes Array" w
+PropTypes.array${1:,}
+endsnippet
+
+snippet   pt.b "PropTypes Boolean" w
+PropTypes.bool${1:,}
+endsnippet
+
+snippet pt.f "PropTypes Function" w
+PropTypes.func${1:,}
+endsnippet
+
+snippet pt.n "PropTypes Number" w
+PropTypes.number${1:,}
+endsnippet
+
+snippet pt.o "PropTypes Object" w
+PropTypes.object${1:,}
+endsnippet
+
+snippet pt.s "PropType String" w
+PropTypes.string${1:,}
+endsnippet
+
+snippet pt.no "PropTypes Node" w
+PropTypes.node${1:,}
+endsnippet
+
+snippet pt.e "PropTypes Element" w
+PropTypes.element${1:,}
+endsnippet
+
+snippet pt.io "PropTypes instanceOf" w
+PropTypes.instanceOf(${2:PropTypes.string})${1:,}
+endsnippet
+
+snippet pt.one "PropTypes oneOf" w
+PropTypes.oneOf(['$2'$3])${1:,}
+endsnippet
+
+snippet pt.onet "PropTypes oneOfType" w
+PropTypes.oneOfType([
+	$2
+])${1:,}
+endsnippet
+
+snippet pt.ao "PropTypes arrayOf" w
+PropTypes.arrayOf(${2:PropTypes.string})${1:,}
+endsnippet
+
+snippet pt.oo "PropTypes objectOf" w
+PropTypes.objectOf(${2:PropTypes.string})${1:,}
+endsnippet
+
+snippet pt.sh "PropTyes Shape" w
+PropTypes.shape({
+	$2
+})${1:,}
+endsnippet
+
+snippet ir "isRequired" w
+isRequired,
+endsnippet
+
+# ES2015
+snippet "c(onst)?" "const" br
+const ${1} = ${2:'$1'};
+endsnippet
+
+snippet "l(et)?" "let" br
+let ${1} = ${2:'$1'};
+endsnippet
+
+snippet "i(mport|mp|m)?" "import" br
+import ${1} from '${2:./}${3:$1}';
+endsnippet
+
+snippet "e(xport|xp|x)?" "export" br
+export ${1:default };
+endsnippet
+
+snippet ie "Import file then export" b
+import ${1} from '${2:./}${3:$1}';
+
+export ${4:default} $1;
+endsnippet
+
+snippet r "return"
+return ${0:result;}
+endsnippet
+
+snippet : "Object Value JS"
+${1:key}: ${0:value},
+endsnippet
+
+snippet :f "method: func(...) { ... }"
+${1:key}: ${2:(args)} => {
+	return $4;
+}${3:,}
+endsnippet
+
+snippet "\.(map|filter|forEach|reduce)" "Array method with an arrow function" r
+.`!p snip.rv = match.group(1)`(${1:(c, i)} => {
+	return $2;
+});
+endsnippet
+
+snippet "\.(map|filter|forEach|reduce)=" "Array method with an arrow function inline" rA
+.`!p snip.rv = match.group(1)`(${1:(c, i)} => $2);
+endsnippet
+
+snippet => "Arrow function"
+(${1:args}) => {
+	return $3;
+}${2:;}
+endsnippet
+
+snippet =>> "Inline arrow function" A
+(${1:args}) => ($2);
+endsnippet
+
+snippet c=> "Const Function" bA
+const ${1:name} = (${2:args}) => {
+	return $4;
+}${3:;}
+endsnippet
+
+snippet expf "Export function" b
+export ${1:default }function ${2:name}($3) {
+	$4
+};
+endsnippet
+
+snippet fun* "Generator"
+function* ${1:name}($2) {
+	yield $3;
+}
+endsnippet
+
+snippet forof "For of loop" b
+for (let ${1:value} of ${2:iterable}) {
+	${3:$1}
+}
+endsnippet
+
+snippet class "Class"
+class ${1:Name} {
+	constructor(${2:arg}) {
+		$3
+	}
+	$4
+}
+endsnippet
+
+snippet cl "console.log(...)"
+console.log('${2:$1: }', ${1});
+endsnippet
+
+snippet fuck "return console.log('fuck')"
+console.log("fuck")
+endsnippet
+
+# ExpressJs
+snippet exr "Generate a router" b
+router.${1:type}('/$2', (req, res) => {
+	$3
+})
+endsnippet
+
+snippet r.s "res.send(...)" bA
+res.send($0);
+endsnippet
+
+snippet exer "Express Error to pass to error middleware" b
+err.message = ${1:message}
+err.status = ${2:404}
+next(err)
+endsnippet
