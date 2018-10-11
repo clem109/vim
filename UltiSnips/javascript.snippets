@@ -334,8 +334,9 @@ endsnippet
 
 snippet c=> "Const Function" bA
 const ${1:name} = (${2:args}) => {
+	$3
 	return $4;
-}${3:;}
+}
 endsnippet
 
 snippet expf "Export function" b
@@ -369,13 +370,21 @@ snippet cl "console.log(...)"
 console.log('${2:$1: }', ${1});
 endsnippet
 
+snippet tc "try {} catch(err) {}" b
+try {
+	$1
+} catch(err) {
+	$2
+}
+endsnippet
+
 snippet fuck "return console.log('fuck')"
 console.log("fuck")
 endsnippet
 
 # ExpressJs
 snippet exr "Generate a router" b
-router.${1:type}('/$2', (req, res) => {
+router.${1:get}('/$2', (req, res) => {
 	$3
 })
 endsnippet
@@ -388,4 +397,12 @@ snippet exer "Express Error to pass to error middleware" b
 err.message = ${1:message}
 err.status = ${2:404}
 next(err)
+endsnippet
+
+snippet win "Winston logger" b
+logger.log({level: '${1:info}', message: '${2}' })
+endsnippet
+
+snippet penv "process.env."
+process.env.$1
 endsnippet
