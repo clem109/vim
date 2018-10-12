@@ -1,19 +1,19 @@
 # React & JSX
 snippet rrcc "React Redux Class Component" b
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import styles from './${2:$1}.css';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
+import styles from './${2:$1}.css'
 
 class ${1:`!v expand('%:t:r')`} extends Component {
 	static propTypes = {
 		children: PropTypes.node,
 		className: PropTypes.string,
 		dispatch: PropTypes.func.isRequired,
-	};
+	}
 
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
 	render() {
@@ -21,42 +21,42 @@ class ${1:`!v expand('%:t:r')`} extends Component {
 			<div className={styles.base}>
 				$3
 			</div>
-		);
+		)
 	}
 }
 
 function mapStateToProps(state) {
-	return {};
+	return {}
 }
 
-export default connect(mapStateToProps)($1);
+export default connect(mapStateToProps)($1)
 endsnippet
 
 snippet src "Stateless React Component" b
-import React from 'react';
+import React from 'react'
 
 const $1 = ({$2}) => (
   <div>
 		{$2}
 	</div>
-);
+)
 
-export default $1;
+export default $1
 endsnippet
 
 snippet rcc "React Class Component" b
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styles from './${2:$1}.css';
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import styles from './${2:$1}.css'
 
 class ${1:`!v expand('%:t:r')`} extends Component {
 	static propTypes = {
 		children: PropTypes.node,
 		className: PropTypes.string,
-	};
+	}
 
 	constructor(props) {
-		super(props);
+		super(props)
 	}
 
 	render() {
@@ -64,63 +64,63 @@ class ${1:`!v expand('%:t:r')`} extends Component {
 			<div className={styles.base}>
 				$3
 			</div>
-		);
+		)
 	}
 }
 
-export default $1;
+export default $1
 endsnippet
 
 snippet rfc "React Functional Component" b
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './${2:$1}.css';
+import React from 'react'
+import PropTypes from 'prop-types'
+import styles from './${2:$1}.css'
 
 function ${1:`!v expand('%:t:r')`}(${3:{...props}}) {
 	return (
 		<div className={styles.base}>
 			$4
 		</div>
-	);
+	)
 }
 
-$1.defaultProps = {};
+$1.defaultProps = {}
 
-$1.propTypes = {};
+$1.propTypes = {}
 
-export default $1;
+export default $1
 endsnippet
 
 snippet rsc "React Styled Component" b
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const ${1:`!v expand('%:t:r')`} = styled.${2:div}\`
 	$3
-\`;
+\`
 
-export default $1;
+export default $1
 endsnippet
 
 snippet rsci "React Styled Component Interpolation" b
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 const ${1:`!v expand('%:t:r')`} = styled.${2:div}\`${props => css\`
 	${3:${props.$4 && \`
 		$5
 	\`}}
-\`}\`;
+\`}\`
 
-export default $1;
+export default $1
 endsnippet
 
 snippet styc "Styled Component"
 const ${1:`!v expand('%:t:r')`} = styled.${2:div}\`
 	$3
-\`;
+\`
 endsnippet
 
 snippet pp "Get Props"
-${props => props.${1}};
+${props => props.${1}}
 endsnippet
 
 snippet cn "className"
@@ -130,13 +130,13 @@ endsnippet
 snippet dp "Default Props" b
 ${1:`!v expand('%:t:r')`.}defaultProps = {
 	$2
-};
+}
 endsnippet
 
 snippet set "Set State"
 this.setState({
 	${1}: ${2}
-});
+})
 endsnippet
 
 snippet props "Get Property" i
@@ -148,7 +148,7 @@ this.state.${1}
 endsnippet
 
 snippet ref "Ref" i
-ref={${1:ref} => { this.${2:name} = $1; }}
+ref={${1:ref} => { this.${2:name} = $1 }}
 endsnippet
 
 
@@ -199,7 +199,7 @@ snippet ren "Render"
 render() {
 	return ${1:(
 		${2:<div>${3}</div>}
-	);}
+	)}
 }
 endsnippet
 
@@ -208,7 +208,7 @@ endsnippet
 snippet pt "PropTypes Definition" b
 ${1:`!v expand('%:t:r')`.}propTypes = {
 	${2:className}: ${3:PropTypes.string},
-};
+}
 endsnippet
 
 snippet  pt.a "PropTypes Array" w
@@ -277,29 +277,29 @@ endsnippet
 
 # ES2015
 snippet "c(onst)?" "const" br
-const ${1} = ${2:'$1'};
+const ${1} = ${2:'$1'}
 endsnippet
 
 snippet "l(et)?" "let" br
-let ${1} = ${2:'$1'};
+let ${1} = ${2:'$1'}
 endsnippet
 
 snippet "i(mport|mp|m)?" "import" br
-import ${1} from '${2:./}${3:$1}';
+import ${1} from '${2:./}${3:$1}'
 endsnippet
 
 snippet "e(xport|xp|x)?" "export" br
-export ${1:default };
+export ${1:default }
 endsnippet
 
 snippet ie "Import file then export" b
-import ${1} from '${2:./}${3:$1}';
+import ${1} from '${2:./}${3:$1}'
 
-export ${4:default} $1;
+export ${4:default} $1
 endsnippet
 
-snippet r "return"
-return ${0:result;}
+snippet r "return" 
+return ${0:result}
 endsnippet
 
 snippet : "Object Value JS"
@@ -308,46 +308,46 @@ endsnippet
 
 snippet :f "method: func(...) { ... }"
 ${1:key}: ${2:(args)} => {
-	return $4;
+	return $4
 }${3:,}
 endsnippet
 
 snippet "\.(map|filter|forEach|reduce)" "Array method with an arrow function" r
 .`!p snip.rv = match.group(1)`(${1:(c, i)} => {
-	return $2;
-});
+	return $2
+})
 endsnippet
 
 snippet "\.(map|filter|forEach|reduce)=" "Array method with an arrow function inline" rA
-.`!p snip.rv = match.group(1)`(${1:(c, i)} => $2);
+.`!p snip.rv = match.group(1)`(${1:(c, i)} => $2)
 endsnippet
 
 snippet => "Arrow function"
 (${1:args}) => {
-	return $3;
-}${2:;}
+	return $3
+}${2:}
 endsnippet
 
 snippet =>> "Inline arrow function" A
-(${1:args}) => ($2);
+(${1:args}) => ($2)
 endsnippet
 
 snippet c=> "Const Function" bA
 const ${1:name} = (${2:args}) => {
 	$3
-	return $4;
+	return $4
 }
 endsnippet
 
 snippet expf "Export function" b
 export ${1:default }function ${2:name}($3) {
 	$4
-};
+}
 endsnippet
 
 snippet fun* "Generator"
 function* ${1:name}($2) {
-	yield $3;
+	yield $3
 }
 endsnippet
 
@@ -367,10 +367,10 @@ class ${1:Name} {
 endsnippet
 
 snippet cl "console.log(...)"
-console.log('${2:$1: }', ${1});
+console.log('${2:$1: }', ${1})
 endsnippet
 
-snippet tc "try {} catch(err) {}" b
+snippet try "try {} catch(err) {}" b
 try {
 	$1
 } catch(err) {
@@ -390,7 +390,7 @@ router.${1:get}('/$2', (req, res) => {
 endsnippet
 
 snippet r.s "res.send(...)" bA
-res.send($0);
+res.send($0)
 endsnippet
 
 snippet exer "Express Error to pass to error middleware" b
@@ -405,4 +405,19 @@ endsnippet
 
 snippet penv "process.env."
 process.env.$1
+endsnippet
+
+snippet caw "const sm = await function()" b
+const $1 = await $2($3)
+endsnippet
+
+snippet law "let sm = await function()" b
+let $1 = await $2($3)
+endsnippet
+
+snippet ca=> "Const Async Function" bA
+const ${1:name} = async (${2:args}) => {
+	$3
+	return $4
+}
 endsnippet
